@@ -1,0 +1,31 @@
+/* App component styles */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  flex-shrink: 0;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  flex: 1;
+}
+
+footer {
+  background-color: #f8fafc;
+  color: #64748b;
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 3rem;
+  flex-shrink: 0;
+  font-size: 14px;
+}

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container-fluid">
+    <span class="navbar-brand">Student Management System</span>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <app-student-form [editingId]="editingId" (studentSaved)="onStudentSaved()"></app-student-form>
+    </div>
+    <div class="col-md-8">
+      <app-student-list></app-student-list>
+    </div>
+  </div>
+</div>

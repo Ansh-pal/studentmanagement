@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>{{ isEditing ? 'Edit Student' : 'Student Form' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="name">Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+      <div *ngIf="form.controls['name'].touched && form.controls['name'].invalid" class="text-danger mt-1">
+        This field is required
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="rollNo">Roll No</label>
+      <input id="rollNo" type="text" class="form-control" formControlName="rollNo" />
+      <div *ngIf="form.controls['rollNo'].touched && form.controls['rollNo'].invalid" class="text-danger mt-1">
+        This field is required
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="course">Course</label>
+      <input id="course" type="text" class="form-control" formControlName="course" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="marks">Marks</label>
+      <input id="marks" type="number" class="form-control" formControlName="marks" min="0" />
+      <div *ngIf="form.controls['marks'].touched && form.controls['marks'].invalid" class="text-danger mt-1">
+        Marks must be 0 or higher
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        {{ isEditing ? 'Update Student' : 'Add Student' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="form.reset({name: '', rollNo: '', course: '', marks: 0}); studentSaved.emit();">
+        Cancel
+      </button>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+  </form>
+</div>
